@@ -226,6 +226,7 @@ class ChatViewController: JSQMessagesViewController,UITextFieldDelegate {
     // MARK: Recieve Messages
     private func observeMessages() {
         //let messageReff = messagesRef!.child("channels").child("bagS4xRSN2N5ePnxLzjWJ3ALASG3").child("messages")
+        // new comment to test git push 
  let messageReff = Database.database().reference().child("messages")
         let messageQuery = messageReff.queryLimited(toLast:25)
         newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
@@ -238,7 +239,6 @@ class ChatViewController: JSQMessagesViewController,UITextFieldDelegate {
                     
                     self.finishReceivingMessage()
                 }
-               
             }
             else if let id = messageData["senderId"] as String!,
                 let photoURL = messageData["photoURL"] as String! { // 1
